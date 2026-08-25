@@ -2,8 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <!-- إجبار الجوال على عرض نسخة الكمبيوتر -->
-    <meta name="viewport" content="width=1200">
+    <!-- تم تغيير العرض إلى 950 لزيادة حجم (تكبير) الصفحة في الجوال مع الحفاظ على تصميم الكمبيوتر -->
+    <meta name="viewport" content="width=950">
     <title>تكوين Formiton - مش مجرد ماركتنج</title>
     
     <!-- استدعاء خط IBM Plex Sans Arabic -->
@@ -30,24 +30,23 @@
             width: 100%; height: 100%;
         }
 
-        /* الطبقة الأولى - نجوم قريبة وسريعة */
+        /* تقليل شفافية النجوم لتصبح خافتة وغير مزعجة (بنسبة 50%) */
         .star-layer-1 {
             background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Ccircle cx='50' cy='50' r='1.5' fill='%23FFF'/%3E%3Ccircle cx='150' cy='120' r='1' fill='%23FFF'/%3E%3Ccircle cx='20' cy='180' r='2' fill='%23FFF'/%3E%3Ccircle cx='200' cy='220' r='1.5' fill='%23FFF'/%3E%3C/svg%3E") repeat;
             animation: animateStars 50s linear infinite;
+            opacity: 0.5; /* كانت ساطعة، الآن 50% */
         }
 
-        /* الطبقة الثانية - نجوم متوسطة */
         .star-layer-2 {
             background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Ccircle cx='100' cy='100' r='1.5' fill='%23FFF'/%3E%3Ccircle cx='250' cy='50' r='1' fill='%23FFF'/%3E%3Ccircle cx='80' cy='300' r='2' fill='%23FFF'/%3E%3Ccircle cx='350' cy='200' r='1.5' fill='%23FFF'/%3E%3C/svg%3E") repeat;
             animation: animateStars 90s linear infinite;
-            opacity: 0.7;
+            opacity: 0.35; /* خافتة أكثر */
         }
 
-        /* الطبقة الثالثة - نجوم بعيدة وبطيئة */
         .star-layer-3 {
             background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Ccircle cx='200' cy='150' r='1' fill='%23FFF'/%3E%3Ccircle cx='400' cy='350' r='1.5' fill='%23FFF'/%3E%3Ccircle cx='50' cy='450' r='2' fill='%23FFF'/%3E%3Ccircle cx='300' cy='50' r='1' fill='%23FFF'/%3E%3C/svg%3E") repeat;
             animation: animateStars 140s linear infinite;
-            opacity: 0.5;
+            opacity: 0.25; /* الأكثر خفوتاً لتعطي بُعداً عميقاً */
         }
 
         @keyframes animateStars {
@@ -67,7 +66,7 @@
         }
 
         body.voice-mode .hero-section {
-            background: transparent; /* جعلها شفافة في صفحة المعلقين لتظهر النجوم بالكامل */
+            background: transparent;
             min-height: auto;
             padding-bottom: 20px;
         }
