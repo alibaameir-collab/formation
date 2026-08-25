@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <!-- تم تغيير إعدادات العرض لإجبار الجوال على إظهار نسخة الكمبيوتر مصغرة -->
+    <!-- إجبار الجوال على عرض نسخة الكمبيوتر -->
     <meta name="viewport" content="width=1200">
     <title>تكوين Formiton - مش مجرد ماركتنج</title>
     
@@ -15,27 +15,59 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'IBM Plex Sans Arabic', sans-serif; }
         body { color: #fff; overflow-x: hidden; background-color: #000; }
 
-        /* ================= الخلفية المضببة الشاملة ================= */
-        .global-bg {
+        /* ================= خلفية النجوم المتحركة ================= */
+        .stars-bg {
             position: fixed;
-            top: -5%; left: -5%; width: 110%; height: 110vh;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.85) 100%), 
-                        url('wall.jpg') no-repeat center center;
-            background-size: cover;
-            filter: blur(10px);
-            z-index: -1;
-            pointer-events: none;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-color: #000;
+            z-index: -5;
+            overflow: hidden;
+        }
+
+        .star-layer {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100%; height: 100%;
+        }
+
+        /* الطبقة الأولى - نجوم قريبة وسريعة */
+        .star-layer-1 {
+            background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Ccircle cx='50' cy='50' r='1.5' fill='%23FFF'/%3E%3Ccircle cx='150' cy='120' r='1' fill='%23FFF'/%3E%3Ccircle cx='20' cy='180' r='2' fill='%23FFF'/%3E%3Ccircle cx='200' cy='220' r='1.5' fill='%23FFF'/%3E%3C/svg%3E") repeat;
+            animation: animateStars 50s linear infinite;
+        }
+
+        /* الطبقة الثانية - نجوم متوسطة */
+        .star-layer-2 {
+            background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Ccircle cx='100' cy='100' r='1.5' fill='%23FFF'/%3E%3Ccircle cx='250' cy='50' r='1' fill='%23FFF'/%3E%3Ccircle cx='80' cy='300' r='2' fill='%23FFF'/%3E%3Ccircle cx='350' cy='200' r='1.5' fill='%23FFF'/%3E%3C/svg%3E") repeat;
+            animation: animateStars 90s linear infinite;
+            opacity: 0.7;
+        }
+
+        /* الطبقة الثالثة - نجوم بعيدة وبطيئة */
+        .star-layer-3 {
+            background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Ccircle cx='200' cy='150' r='1' fill='%23FFF'/%3E%3Ccircle cx='400' cy='350' r='1.5' fill='%23FFF'/%3E%3Ccircle cx='50' cy='450' r='2' fill='%23FFF'/%3E%3Ccircle cx='300' cy='50' r='1' fill='%23FFF'/%3E%3C/svg%3E") repeat;
+            animation: animateStars 140s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes animateStars {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
         }
 
         /* ================= الجزء العلوي (الهيدر) ================= */
         .hero-section {
             position: relative;
             min-height: 480px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 60%, #000 100%), 
+                        url('bac.jpg') no-repeat center top;
+            background-size: cover;
             padding: 40px 5% 0;
-            transition: min-height 0.5s ease;
+            transition: background 0.5s ease, min-height 0.5s ease;
         }
 
         body.voice-mode .hero-section {
+            background: transparent; /* جعلها شفافة في صفحة المعلقين لتظهر النجوم بالكامل */
             min-height: auto;
             padding-bottom: 20px;
         }
@@ -74,7 +106,8 @@
             border-radius: 40px; max-width: 650px; font-size: 1.1rem; font-weight: 200; line-height: 1.8; color: #ddd;
             backdrop-filter: blur(5px);
         }
-        .features-section { display: flex; justify-content: center; gap: 40px; padding: 80px 5% 50px; position: relative; }
+        
+        .features-section { display: flex; justify-content: center; gap: 40px; padding: 80px 5% 50px; position: relative; z-index: 2; }
         .feature-card {
             background: url('خلفية المربعات.png') center center no-repeat; background-size: cover; background-color: #050505;
             border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; width: 280px; padding: 60px 20px 30px; text-align: center;
@@ -93,8 +126,67 @@
         .feature-card p { color: #888; font-size: 0.9rem; font-weight: 200; }
         .feature-card:hover p { color: #fff; }
 
+        /* ================= قسم المنشورات ================= */
+        .posts-section {
+            padding: 40px 5% 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .posts-title-img { max-width: 380px; height: auto; margin-bottom: 60px; display: block; }
+        .posts-container { display: flex; justify-content: center; gap: 60px; }
+        .post-item { display: flex; flex-direction: column; align-items: center; gap: 25px; transition: transform 0.4s ease; }
+        .post-item:hover { transform: translateY(-10px); }
+
+        .post-image {
+            width: 380px; height: auto; border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);
+            transition: box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .post-item:hover .post-image { box-shadow: 0 20px 50px rgba(0,0,0,0.9); border-color: rgba(255,255,255,0.3); }
+
+        .view-post-btn { background: transparent; border: none; cursor: pointer; transition: transform 0.3s ease; }
+        .view-post-btn img { width: 250px; height: auto; }
+        .view-post-btn:hover { transform: scale(1.05); }
+
+        /* ================= زر الواتساب العائم ================= */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 38px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulse-wa 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            color: #fff;
+        }
+
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
         /* ================= صفحة اختيار المعلق ================= */
-        #voice-section { display: none; padding: 0 5% 80px; text-align: center; }
+        #voice-section { display: none; padding: 0 5% 80px; text-align: center; position: relative; z-index: 2; }
         
         .back-btn {
             background: transparent; color: #aaa; border: none; font-size: 1.1rem; cursor: pointer;
@@ -104,39 +196,25 @@
 
         .voice-title-container {
             background: linear-gradient(180deg, rgba(24,24,24,0.9) 0%, rgba(5,5,5,0.9) 100%);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 50px;
-            padding: 20px 50px;
-            display: inline-block;
-            margin-bottom: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; padding: 20px 50px;
+            display: inline-block; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); backdrop-filter: blur(5px);
         }
         .voice-title-img { height: 25px; width: auto; display: block; }
 
         .voice-cards-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 
         .voice-item {
-            background: url('خلفية مربع الصوت.png') center center no-repeat;
-            background-size: cover;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 60px;
-            width: 100%;
-            max-width: 750px;
-            padding: 12px 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.3s ease;
+            background: url('خلفية مربع الصوت.png') center center no-repeat; background-size: cover;
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 60px; width: 100%; max-width: 750px;
+            padding: 12px 15px; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s ease;
         }
         .voice-item:hover { border-color: rgba(255,255,255,0.4); box-shadow: 0 5px 20px rgba(0,0,0,0.6); }
 
         .voice-info-group { display: flex; align-items: center; gap: 15px; width: 260px; }
         
         .voice-avatar-box {
-            width: 60px; height: 60px; border-radius: 50%;
-            background-color: #fff; display: flex; justify-content: center; align-items: center; padding: 2px;
-            flex-shrink: 0;
+            width: 60px; height: 60px; border-radius: 50%; background-color: #fff;
+            display: flex; justify-content: center; align-items: center; padding: 2px; flex-shrink: 0;
         }
         .voice-avatar-box img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
         
@@ -175,8 +253,12 @@
 </head>
 <body>
 
-    <!-- الخلفية المضببة التي ستطبق على كل الصفحات -->
-    <div class="global-bg"></div>
+    <!-- خلفية النجوم المتحركة الشاملة -->
+    <div class="stars-bg">
+        <div class="star-layer star-layer-1"></div>
+        <div class="star-layer star-layer-2"></div>
+        <div class="star-layer star-layer-3"></div>
+    </div>
 
     <!-- الهيدر -->
     <header class="hero-section">
@@ -199,6 +281,13 @@
 
     <!-- ================= القسم الرئيسي ================= -->
     <div id="main-section" class="fade-in">
+        
+        <!-- زر الواتساب العائم (يظهر فقط في الصفحة الرئيسية) -->
+        <a href="https://wa.me/967775198963" target="_blank" class="whatsapp-btn" title="تواصل معنا عبر واتساب">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- صندوق النص -->
         <section class="intro-container">
             <div class="intro-box">
                 في عالم مليان منافسة، تحتاج أكثر من مجرد إعلانات عادية..<br>
@@ -206,6 +295,7 @@
             </div>
         </section>
 
+        <!-- المربعات الثلاثة -->
         <section class="features-section">
             <div class="feature-card">
                 <div class="icon-wrapper"><img src="استبيان.png" alt="أيقونة استبيان"></div>
@@ -223,20 +313,43 @@
                 <p>اختيار معلقك الصوتي لاعمالك</p>
             </div>
         </section>
+
+        <!-- ================= قسم المنشورات ================= -->
+        <section class="posts-section">
+            <img class="posts-title-img" src="منشورات في صفحاتنــــا_.png" alt="منشورات في صفحاتنا">
+            
+            <div class="posts-container">
+                <!-- المنشور الأول -->
+                <div class="post-item">
+                    <img class="post-image" src="بوست ون.jpg" alt="بوست 1">
+                    <button class="view-post-btn">
+                        <img src="شاهـــد المنشـــــور_.png" alt="شاهد المنشور">
+                    </button>
+                </div>
+
+                <!-- المنشور الثاني -->
+                <div class="post-item">
+                    <img class="post-image" src="بوست تو.jpg" alt="بوست 2">
+                    <button class="view-post-btn">
+                        <img src="شاهـــد المنشـــــور_.png" alt="شاهد المنشور">
+                    </button>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <!-- ================= قسم اختيار المعلق ================= -->
     <div id="voice-section">
         <button class="back-btn" onclick="openMainSection()"><i class="fas fa-arrow-right"></i> رجوع</button>
 
-        <!-- عنوان الصفحة -->
         <div class="voice-title-container">
             <img class="voice-title-img" src="أختر من يمثــل صــــوت مشروعــــك.png" alt="أختر من يمثل صوت مشروعك">
         </div>
 
         <div class="voice-cards-container">
             
-            <!-- المعلق الأول: عبدالله حديجان -->
+            <!-- المعلق الأول -->
             <div class="voice-item">
                 <div class="voice-info-group">
                     <div class="voice-avatar-box"><img src="female-avatar.png" alt="صورة المعلق"></div>
@@ -253,7 +366,7 @@
                 </div>
             </div>
 
-            <!-- المعلق الثاني: هاشم الجيلاني -->
+            <!-- المعلق الثاني -->
             <div class="voice-item">
                 <div class="voice-info-group">
                     <div class="voice-avatar-box"><img src="female-avatar.png" alt="صورة المعلق"></div>
@@ -270,7 +383,7 @@
                 </div>
             </div>
 
-            <!-- المعلق الثالث: إبراهيم ال عبدالكريم -->
+            <!-- المعلق الثالث -->
             <div class="voice-item">
                 <div class="voice-info-group">
                     <div class="voice-avatar-box"><img src="female-avatar.png" alt="صورة المعلق"></div>
@@ -292,7 +405,6 @@
 
     <!-- الجافاسكربت -->
     <script>
-        // توليد الموجات الصوتية
         const waveHeights = [4, 8, 15, 6, 20, 10, 5, 25, 12, 6, 18, 30, 22, 10, 5, 15, 28, 12, 8, 20, 35, 15, 8, 25, 12, 6, 18, 10, 5, 12, 6, 20, 8, 4];
         
         function generateWaveforms() {
@@ -304,7 +416,6 @@
         }
         generateWaveforms();
 
-        // التحكم في التنقل
         function openVoiceSection() {
             document.body.classList.add('voice-mode'); 
             document.getElementById('main-section').style.display = 'none';
@@ -327,7 +438,6 @@
             }
         }
 
-        // مشغل الصوت
         let audioPlayer = new Audio();
         let currentVoiceItem = null;
 
