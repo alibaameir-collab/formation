@@ -2,7 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- تم تغيير إعدادات العرض لإجبار الجوال على إظهار نسخة الكمبيوتر مصغرة -->
+    <meta name="viewport" content="width=1200">
     <title>تكوين Formiton - مش مجرد ماركتنج</title>
     
     <!-- استدعاء خط IBM Plex Sans Arabic -->
@@ -17,17 +18,12 @@
         /* ================= الخلفية المضببة الشاملة ================= */
         .global-bg {
             position: fixed;
-            /* نجعل الأبعاد أكبر قليلاً من الشاشة لإخفاء الحواف الباهتة الناتجة عن الـ blur */
-            top: -5%;
-            left: -5%;
-            width: 110%;
-            height: 110vh;
-            /* ربط صورة الخلفية "wall.jpg" مع تدرج داكن لضمان وضوح النصوص */
+            top: -5%; left: -5%; width: 110%; height: 110vh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.85) 100%), 
                         url('wall.jpg') no-repeat center center;
             background-size: cover;
-            filter: blur(10px); /* درجة التضبيب */
-            z-index: -1; /* إرسالها للخلف تماماً */
+            filter: blur(10px);
+            z-index: -1;
             pointer-events: none;
         }
 
@@ -49,7 +45,6 @@
         .slogan img { max-width: 250px; }
         .logo img:hover, .slogan img:hover { transform: scale(1.05); }
 
-        /* إخفاء شريط التنقل في صفحة المعلقين */
         body.voice-mode .navigation { display: none; }
 
         .navigation { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 40px; }
@@ -74,13 +69,12 @@
         .intro-container { padding: 0 5%; display: flex; justify-content: flex-start; margin-top: 40px; position: relative; z-index: 2; }
         
         .intro-box {
-            /* جعلنا الصندوق شفافاً قليلاً ليبرز الخلفية المضببة وراءه */
             background-color: rgba(17, 17, 17, 0.85); 
             border: 1px solid rgba(255,255,255,0.08); padding: 25px 40px;
             border-radius: 40px; max-width: 650px; font-size: 1.1rem; font-weight: 200; line-height: 1.8; color: #ddd;
             backdrop-filter: blur(5px);
         }
-        .features-section { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; padding: 80px 5% 50px; position: relative; }
+        .features-section { display: flex; justify-content: center; gap: 40px; padding: 80px 5% 50px; position: relative; }
         .feature-card {
             background: url('خلفية المربعات.png') center center no-repeat; background-size: cover; background-color: #050505;
             border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; width: 280px; padding: 60px 20px 30px; text-align: center;
@@ -108,7 +102,6 @@
         }
         .back-btn:hover { color: #fff; transform: translateX(-5px); }
 
-        /* إطار عنوان الصفحة */
         .voice-title-container {
             background: linear-gradient(180deg, rgba(24,24,24,0.9) 0%, rgba(5,5,5,0.9) 100%);
             border: 1px solid rgba(255,255,255,0.05);
@@ -123,7 +116,6 @@
 
         .voice-cards-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 
-        /* تصميم البطاقة الأفقية */
         .voice-item {
             background: url('خلفية مربع الصوت.png') center center no-repeat;
             background-size: cover;
@@ -139,12 +131,12 @@
         }
         .voice-item:hover { border-color: rgba(255,255,255,0.4); box-shadow: 0 5px 20px rgba(0,0,0,0.6); }
 
-        /* الجانب الأيمن (الصورة + النص) */
         .voice-info-group { display: flex; align-items: center; gap: 15px; width: 260px; }
         
         .voice-avatar-box {
             width: 60px; height: 60px; border-radius: 50%;
             background-color: #fff; display: flex; justify-content: center; align-items: center; padding: 2px;
+            flex-shrink: 0;
         }
         .voice-avatar-box img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
         
@@ -152,9 +144,8 @@
         .v-type { height: 14px; width: auto; object-fit: contain; }
         .v-name { height: 20px; width: auto; object-fit: contain; }
 
-        /* الجانب الأيسر (زر التشغيل) */
         .play-btn-wrapper {
-            width: 60px; height: 60px; border-radius: 50%;
+            width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
             background: radial-gradient(circle, #333 0%, #111 80%, #000 100%);
             display: flex; justify-content: center; align-items: center;
             box-shadow: inset 0 0 15px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.5);
@@ -163,14 +154,12 @@
         .play-btn-wrapper:hover { transform: scale(1.05); background: radial-gradient(circle, #444 0%, #222 80%, #000 100%); }
         .play-btn-wrapper img { width: 20px; height: auto; margin-right: -4px; }
 
-        /* المنتصف (الموجات الصوتية المتطابقة مع الصورة) */
         .waveform-container {
             display: flex; align-items: center; justify-content: center; gap: 3px;
             flex-grow: 1; margin: 0 20px; opacity: 0.3; transition: opacity 0.3s ease;
         }
         .w-bar { width: 2px; background-color: #fff; border-radius: 2px; transition: transform 0.2s ease; }
         
-        /* تفعيل الموجات عند التشغيل */
         .voice-item.is-playing { border-color: rgba(255, 255, 255, 0.6); box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
         .voice-item.is-playing .waveform-container { opacity: 1; }
         .voice-item.is-playing .w-bar { animation: pulse-wave 0.5s infinite alternate; }
@@ -178,17 +167,10 @@
 
         @keyframes pulse-wave { 0% { transform: scaleY(0.6); } 100% { transform: scaleY(1.5); } }
 
-        /* إعطاء حركات عشوائية للموجات */
         .w-bar:nth-child(odd) { animation-delay: 0.1s; animation-duration: 0.4s; }
         .w-bar:nth-child(even) { animation-delay: 0.2s; animation-duration: 0.6s; }
         .w-bar:nth-child(3n) { animation-delay: 0.3s; animation-duration: 0.5s; }
 
-        @media (max-width: 768px) {
-            .top-bar { flex-direction: column; align-items: center; gap: 20px; }
-            .voice-item { flex-direction: column; border-radius: 30px; padding: 20px; gap: 20px; }
-            .voice-info-group { width: 100%; justify-content: center; }
-            .waveform-container { margin: 10px 0; }
-        }
     </style>
 </head>
 <body>
