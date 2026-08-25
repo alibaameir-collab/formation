@@ -2,11 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <!-- تم تغيير العرض إلى 950 لزيادة حجم (تكبير) الصفحة في الجوال مع الحفاظ على تصميم الكمبيوتر -->
     <meta name="viewport" content="width=950">
     <title>تكوين Formiton - مش مجرد ماركتنج</title>
     
-    <!-- استدعاء خط IBM Plex Sans Arabic -->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -17,59 +15,37 @@
 
         /* ================= خلفية النجوم المتحركة ================= */
         .stars-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background-color: #000;
-            z-index: -5;
-            overflow: hidden;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-color: #000; z-index: -5; overflow: hidden;
         }
 
-        .star-layer {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            width: 100%; height: 100%;
-        }
+        .star-layer { position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; }
 
-        /* تقليل شفافية النجوم لتصبح خافتة وغير مزعجة (بنسبة 50%) */
         .star-layer-1 {
             background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Ccircle cx='50' cy='50' r='1.5' fill='%23FFF'/%3E%3Ccircle cx='150' cy='120' r='1' fill='%23FFF'/%3E%3Ccircle cx='20' cy='180' r='2' fill='%23FFF'/%3E%3Ccircle cx='200' cy='220' r='1.5' fill='%23FFF'/%3E%3C/svg%3E") repeat;
-            animation: animateStars 50s linear infinite;
-            opacity: 0.5; /* كانت ساطعة، الآن 50% */
+            animation: animateStars 50s linear infinite; opacity: 0.5;
         }
 
         .star-layer-2 {
             background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Ccircle cx='100' cy='100' r='1.5' fill='%23FFF'/%3E%3Ccircle cx='250' cy='50' r='1' fill='%23FFF'/%3E%3Ccircle cx='80' cy='300' r='2' fill='%23FFF'/%3E%3Ccircle cx='350' cy='200' r='1.5' fill='%23FFF'/%3E%3C/svg%3E") repeat;
-            animation: animateStars 90s linear infinite;
-            opacity: 0.35; /* خافتة أكثر */
+            animation: animateStars 90s linear infinite; opacity: 0.35;
         }
 
         .star-layer-3 {
             background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Ccircle cx='200' cy='150' r='1' fill='%23FFF'/%3E%3Ccircle cx='400' cy='350' r='1.5' fill='%23FFF'/%3E%3Ccircle cx='50' cy='450' r='2' fill='%23FFF'/%3E%3Ccircle cx='300' cy='50' r='1' fill='%23FFF'/%3E%3C/svg%3E") repeat;
-            animation: animateStars 140s linear infinite;
-            opacity: 0.25; /* الأكثر خفوتاً لتعطي بُعداً عميقاً */
+            animation: animateStars 140s linear infinite; opacity: 0.25;
         }
 
-        @keyframes animateStars {
-            from { background-position: 0 0; }
-            to { background-position: -10000px 5000px; }
-        }
+        @keyframes animateStars { from { background-position: 0 0; } to { background-position: -10000px 5000px; } }
 
         /* ================= الجزء العلوي (الهيدر) ================= */
         .hero-section {
-            position: relative;
-            min-height: 480px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 60%, #000 100%), 
-                        url('bac.jpg') no-repeat center top;
-            background-size: cover;
-            padding: 40px 5% 0;
-            transition: background 0.5s ease, min-height 0.5s ease;
+            position: relative; min-height: 480px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 60%, #000 100%), url('bac.jpg') no-repeat center top;
+            background-size: cover; padding: 40px 5% 0; transition: background 0.5s ease, min-height 0.5s ease;
         }
 
-        body.voice-mode .hero-section {
-            background: transparent;
-            min-height: auto;
-            padding-bottom: 20px;
-        }
+        body.voice-mode .hero-section { background: transparent; min-height: auto; padding-bottom: 20px; }
 
         .top-bar { display: flex; justify-content: space-between; align-items: flex-start; }
         .logo img, .slogan img { max-width: 150px; height: auto; transition: transform 0.3s ease; }
@@ -80,10 +56,7 @@
 
         .navigation { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 40px; }
         .nav-buttons { display: flex; align-items: center; gap: 15px; }
-        .nav-btn {
-            background: transparent; color: #fff; border: 1px solid transparent; 
-            padding: 8px 30px; border-radius: 30px; font-size: 1.1rem; cursor: pointer; transition: all 0.4s ease;
-        }
+        .nav-btn { background: transparent; color: #fff; border: 1px solid transparent; padding: 8px 30px; border-radius: 30px; font-size: 1.1rem; cursor: pointer; transition: all 0.4s ease; }
         .nav-btn:hover { border-color: rgba(255, 255, 255, 0.4); transform: translateY(-2px); }
         .nav-btn.active { border-color: rgba(255, 255, 255, 0.7); background: rgba(255, 255, 255, 0.05); }
         .nav-arrow { color: #fff; font-size: 1.2rem; cursor: pointer; opacity: 0.7; padding: 0 10px; transition: all 0.3s ease; }
@@ -92,32 +65,17 @@
         .dot { width: 6px; height: 6px; background-color: rgba(255, 255, 255, 0.4); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; }
         .dot.active, .dot:hover { background-color: #fff; }
 
-        /* الانتقالات */
         .fade-in { animation: fadeIn 0.6s ease forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* ================= الصفحة الرئيسية ================= */
         .intro-container { padding: 0 5%; display: flex; justify-content: flex-start; margin-top: 40px; position: relative; z-index: 2; }
-        
-        .intro-box {
-            background-color: rgba(17, 17, 17, 0.85); 
-            border: 1px solid rgba(255,255,255,0.08); padding: 25px 40px;
-            border-radius: 40px; max-width: 650px; font-size: 1.1rem; font-weight: 200; line-height: 1.8; color: #ddd;
-            backdrop-filter: blur(5px);
-        }
+        .intro-box { background-color: rgba(17, 17, 17, 0.85); border: 1px solid rgba(255,255,255,0.08); padding: 25px 40px; border-radius: 40px; max-width: 650px; font-size: 1.1rem; font-weight: 200; line-height: 1.8; color: #ddd; backdrop-filter: blur(5px); }
         
         .features-section { display: flex; justify-content: center; gap: 40px; padding: 80px 5% 50px; position: relative; z-index: 2; }
-        .feature-card {
-            background: url('خلفية المربعات.png') center center no-repeat; background-size: cover; background-color: #050505;
-            border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; width: 280px; padding: 60px 20px 30px; text-align: center;
-            position: relative; cursor: pointer; transition: all 0.4s ease;
-        }
+        .feature-card { background: url('خلفية المربعات.png') center center no-repeat; background-size: cover; background-color: #050505; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; width: 280px; padding: 60px 20px 30px; text-align: center; position: relative; cursor: pointer; transition: all 0.4s ease; }
         .feature-card:hover { transform: translateY(-15px); border-color: rgba(255,255,255,0.4); box-shadow: 0 15px 30px rgba(0,0,0,0.9), 0 0 20px rgba(255,255,255,0.1) inset; }
-        .icon-wrapper {
-            position: absolute; top: -50px; left: 0; right: 0; margin: 0 auto; width: 100px; height: 100px;
-            background: radial-gradient(circle, rgba(60,60,60,1) 0%, rgba(0,0,0,1) 70%); border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); transition: all 0.4s ease;
-        }
+        .icon-wrapper { position: absolute; top: -50px; left: 0; right: 0; margin: 0 auto; width: 100px; height: 100px; background: radial-gradient(circle, rgba(60,60,60,1) 0%, rgba(0,0,0,1) 70%); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); transition: all 0.4s ease; }
         .feature-card:hover .icon-wrapper { box-shadow: 0 0 50px rgba(255, 255, 255, 0.4); transform: scale(1.1); }
         .icon-wrapper img { width: 45px; height: auto; transition: transform 0.4s ease; }
         .feature-card:hover .icon-wrapper img { transform: scale(1.1); }
@@ -126,115 +84,87 @@
         .feature-card:hover p { color: #fff; }
 
         /* ================= قسم المنشورات ================= */
-        .posts-section {
-            padding: 40px 5% 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
+        .posts-section { padding: 40px 5% 100px; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
         .posts-title-img { max-width: 380px; height: auto; margin-bottom: 60px; display: block; }
         .posts-container { display: flex; justify-content: center; gap: 60px; }
         .post-item { display: flex; flex-direction: column; align-items: center; gap: 25px; transition: transform 0.4s ease; }
         .post-item:hover { transform: translateY(-10px); }
-
-        .post-image {
-            width: 380px; height: auto; border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);
-            transition: box-shadow 0.4s ease, border-color 0.4s ease;
-        }
+        .post-image { width: 380px; height: auto; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); transition: box-shadow 0.4s ease, border-color 0.4s ease; }
         .post-item:hover .post-image { box-shadow: 0 20px 50px rgba(0,0,0,0.9); border-color: rgba(255,255,255,0.3); }
-
         .view-post-btn { background: transparent; border: none; cursor: pointer; transition: transform 0.3s ease; }
         .view-post-btn img { width: 250px; height: auto; }
         .view-post-btn:hover { transform: scale(1.05); }
 
         /* ================= زر الواتساب العائم ================= */
         .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #fff;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 38px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: pulse-wa 2s infinite;
+            position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: #fff; width: 65px; height: 65px;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 38px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; text-decoration: none; transition: all 0.3s ease; animation: pulse-wa 2s infinite;
         }
+        .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); color: #fff; }
+        @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-            color: #fff;
-        }
+        /* ================= تصميم زر الرجوع الموحد ================= */
+        .back-btn { background: transparent; color: #aaa; border: none; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; gap: 10px; margin-bottom: 30px; transition: all 0.3s ease; }
+        .back-btn:hover { color: #fff; transform: translateX(-5px); }
 
-        @keyframes pulse-wa {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        /* ================= قسم الاستبيان (الجديد) ================= */
+        #questionnaire-section { display: none; padding: 0 5% 80px; position: relative; z-index: 2; }
+        
+        .chat-container { display: flex; flex-direction: column; gap: 30px; max-width: 850px; margin: 0 auto; }
+        
+        .chat-q { align-self: flex-start; max-width: 85%; }
+        .chat-q img { width: 100%; height: auto; display: block; }
+
+        .chat-a { align-self: flex-end; max-width: 85%; width: 100%; position: relative; }
+        .chat-a img.bg-img { width: 100%; height: auto; display: block; }
+        
+        /* حقل النص فوق صورة "إجابة العميل" */
+        .chat-a textarea {
+            position: absolute;
+            top: 15%;
+            right: 3%; /* ترك مسافة من اليمين */
+            width: 78%; /* العرض يمتد لليسار ويتوقف قبل صورة الأفاتار */
+            height: 70%;
+            background-color: #d6d6d6; /* لون رمادي يطابق البطاقة ليغطي أي نص مدمج فيها */
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            color: #111;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: inherit;
+            resize: none;
+            padding: 10px 15px;
         }
+        .chat-a textarea::placeholder { color: #666; font-weight: normal; }
+
+        .submit-wa-btn { background: transparent; border: none; cursor: pointer; margin: 50px auto 0; display: block; transition: transform 0.3s ease; }
+        .submit-wa-btn img { max-width: 250px; height: auto; display: block; }
+        .submit-wa-btn:hover { transform: scale(1.05); }
 
         /* ================= صفحة اختيار المعلق ================= */
         #voice-section { display: none; padding: 0 5% 80px; text-align: center; position: relative; z-index: 2; }
         
-        .back-btn {
-            background: transparent; color: #aaa; border: none; font-size: 1.1rem; cursor: pointer;
-            display: flex; align-items: center; gap: 10px; margin-bottom: 20px; transition: all 0.3s ease;
-        }
-        .back-btn:hover { color: #fff; transform: translateX(-5px); }
-
-        .voice-title-container {
-            background: linear-gradient(180deg, rgba(24,24,24,0.9) 0%, rgba(5,5,5,0.9) 100%);
-            border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; padding: 20px 50px;
-            display: inline-block; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); backdrop-filter: blur(5px);
-        }
+        .voice-title-container { background: linear-gradient(180deg, rgba(24,24,24,0.9) 0%, rgba(5,5,5,0.9) 100%); border: 1px solid rgba(255,255,255,0.05); border-radius: 50px; padding: 20px 50px; display: inline-block; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
         .voice-title-img { height: 25px; width: auto; display: block; }
 
         .voice-cards-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-
-        .voice-item {
-            background: url('خلفية مربع الصوت.png') center center no-repeat; background-size: cover;
-            border: 1px solid rgba(255,255,255,0.2); border-radius: 60px; width: 100%; max-width: 750px;
-            padding: 12px 15px; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s ease;
-        }
+        .voice-item { background: url('خلفية مربع الصوت.png') center center no-repeat; background-size: cover; border: 1px solid rgba(255,255,255,0.2); border-radius: 60px; width: 100%; max-width: 750px; padding: 12px 15px; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s ease; }
         .voice-item:hover { border-color: rgba(255,255,255,0.4); box-shadow: 0 5px 20px rgba(0,0,0,0.6); }
 
         .voice-info-group { display: flex; align-items: center; gap: 15px; width: 260px; }
-        
-        .voice-avatar-box {
-            width: 60px; height: 60px; border-radius: 50%; background-color: #fff;
-            display: flex; justify-content: center; align-items: center; padding: 2px; flex-shrink: 0;
-        }
+        .voice-avatar-box { width: 60px; height: 60px; border-radius: 50%; background-color: #fff; display: flex; justify-content: center; align-items: center; padding: 2px; flex-shrink: 0; }
         .voice-avatar-box img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
-        
         .voice-text-details { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
         .v-type { height: 14px; width: auto; object-fit: contain; }
         .v-name { height: 20px; width: auto; object-fit: contain; }
 
-        .play-btn-wrapper {
-            width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
-            background: radial-gradient(circle, #333 0%, #111 80%, #000 100%);
-            display: flex; justify-content: center; align-items: center;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.5);
-            cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1);
-        }
+        .play-btn-wrapper { width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0; background: radial-gradient(circle, #333 0%, #111 80%, #000 100%); display: flex; justify-content: center; align-items: center; box-shadow: inset 0 0 15px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.5); cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); }
         .play-btn-wrapper:hover { transform: scale(1.05); background: radial-gradient(circle, #444 0%, #222 80%, #000 100%); }
         .play-btn-wrapper img { width: 20px; height: auto; margin-right: -4px; }
 
-        .waveform-container {
-            display: flex; align-items: center; justify-content: center; gap: 3px;
-            flex-grow: 1; margin: 0 20px; opacity: 0.3; transition: opacity 0.3s ease;
-        }
+        .waveform-container { display: flex; align-items: center; justify-content: center; gap: 3px; flex-grow: 1; margin: 0 20px; opacity: 0.3; transition: opacity 0.3s ease; }
         .w-bar { width: 2px; background-color: #fff; border-radius: 2px; transition: transform 0.2s ease; }
         
         .voice-item.is-playing { border-color: rgba(255, 255, 255, 0.6); box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
@@ -243,16 +173,14 @@
         .voice-item.is-playing .play-btn-wrapper img { opacity: 0.4; }
 
         @keyframes pulse-wave { 0% { transform: scaleY(0.6); } 100% { transform: scaleY(1.5); } }
-
         .w-bar:nth-child(odd) { animation-delay: 0.1s; animation-duration: 0.4s; }
         .w-bar:nth-child(even) { animation-delay: 0.2s; animation-duration: 0.6s; }
         .w-bar:nth-child(3n) { animation-delay: 0.3s; animation-duration: 0.5s; }
-
     </style>
 </head>
 <body>
 
-    <!-- خلفية النجوم المتحركة الشاملة -->
+    <!-- خلفية النجوم المتحركة -->
     <div class="stars-bg">
         <div class="star-layer star-layer-1"></div>
         <div class="star-layer star-layer-2"></div>
@@ -281,12 +209,10 @@
     <!-- ================= القسم الرئيسي ================= -->
     <div id="main-section" class="fade-in">
         
-        <!-- زر الواتساب العائم (يظهر فقط في الصفحة الرئيسية) -->
         <a href="https://wa.me/967775198963" target="_blank" class="whatsapp-btn" title="تواصل معنا عبر واتساب">
             <i class="fab fa-whatsapp"></i>
         </a>
 
-        <!-- صندوق النص -->
         <section class="intro-container">
             <div class="intro-box">
                 في عالم مليان منافسة، تحتاج أكثر من مجرد إعلانات عادية..<br>
@@ -294,18 +220,20 @@
             </div>
         </section>
 
-        <!-- المربعات الثلاثة -->
         <section class="features-section">
-            <div class="feature-card">
+            <!-- تم ربط بطاقة الاستبيان بفتح صفحة الاستبيان الجديدة -->
+            <div class="feature-card" onclick="openQuestionnaire()">
                 <div class="icon-wrapper"><img src="استبيان.png" alt="أيقونة استبيان"></div>
                 <img class="card-title-img" src="إستبيان الأفكــار.png" alt="تعبئة إستبيان الأفكار">
                 <p>استبيان لتحديد التوجه والتفكير</p>
             </div>
+            
             <div class="feature-card">
                 <div class="icon-wrapper"><img src="مونتاج.png" alt="أيقونة مونتاج"></div>
                 <img class="card-title-img" src="نوع المونتــــاج.png" alt="إختيار نوع المونتاج">
                 <p>لتحديد نوعية المونتاج المطلوبة</p>
             </div>
+            
             <div class="feature-card" onclick="openVoiceSection()">
                 <div class="icon-wrapper"><img src="تعليق صوتي.png" alt="أيقونة تعليق صوتي"></div>
                 <img class="card-title-img" src="معلـــق صوتي.png" alt="إختيار معلق صوتي">
@@ -313,29 +241,58 @@
             </div>
         </section>
 
-        <!-- ================= قسم المنشورات ================= -->
         <section class="posts-section">
             <img class="posts-title-img" src="منشورات في صفحاتنــــا_.png" alt="منشورات في صفحاتنا">
-            
             <div class="posts-container">
-                <!-- المنشور الأول -->
                 <div class="post-item">
                     <img class="post-image" src="بوست ون.jpg" alt="بوست 1">
-                    <button class="view-post-btn">
-                        <img src="شاهـــد المنشـــــور_.png" alt="شاهد المنشور">
-                    </button>
+                    <button class="view-post-btn"><img src="شاهـــد المنشـــــور_.png" alt="شاهد المنشور"></button>
                 </div>
-
-                <!-- المنشور الثاني -->
                 <div class="post-item">
                     <img class="post-image" src="بوست تو.jpg" alt="بوست 2">
-                    <button class="view-post-btn">
-                        <img src="شاهـــد المنشـــــور_.png" alt="شاهد المنشور">
-                    </button>
+                    <button class="view-post-btn"><img src="شاهـــد المنشـــــور_.png" alt="شاهد المنشور"></button>
                 </div>
             </div>
         </section>
+    </div>
 
+    <!-- ================= قسم الاستبيان (الجديد) ================= -->
+    <div id="questionnaire-section">
+        <button class="back-btn" onclick="openMainSection()"><i class="fas fa-arrow-right"></i> رجوع</button>
+
+        <div class="chat-container">
+            <!-- السؤال الأول -->
+            <div class="chat-q">
+                <img src="السؤال الاول.png" alt="السؤال الأول">
+            </div>
+            <div class="chat-a">
+                <img class="bg-img" src="اجابة العميل.png" alt="خلفية الإجابة">
+                <textarea id="ans1" placeholder="سؤال مفتوح لتوضيح طبيعة العمل..."></textarea>
+            </div>
+
+            <!-- السؤال الثاني -->
+            <div class="chat-q">
+                <img src="السؤال الثاني.png" alt="السؤال الثاني">
+            </div>
+            <div class="chat-a">
+                <img class="bg-img" src="اجابة العميل.png" alt="خلفية الإجابة">
+                <textarea id="ans2" placeholder="سؤال مفتوح لتوضيح طبيعة العمل..."></textarea>
+            </div>
+
+            <!-- السؤال الثالث -->
+            <div class="chat-q">
+                <img src="السؤال الثالث.png" alt="السؤال الثالث">
+            </div>
+            <div class="chat-a">
+                <img class="bg-img" src="اجابة العميل.png" alt="خلفية الإجابة">
+                <textarea id="ans3" placeholder="سؤال مفتوح لتوضيح طبيعة العمل..."></textarea>
+            </div>
+        </div>
+
+        <!-- زر الإرسال -->
+        <button class="submit-wa-btn" onclick="sendWhatsApp()">
+            <img src="ارسال الان.png" alt="إرسال الآن">
+        </button>
     </div>
 
     <!-- ================= قسم اختيار المعلق ================= -->
@@ -347,8 +304,6 @@
         </div>
 
         <div class="voice-cards-container">
-            
-            <!-- المعلق الأول -->
             <div class="voice-item">
                 <div class="voice-info-group">
                     <div class="voice-avatar-box"><img src="female-avatar.png" alt="صورة المعلق"></div>
@@ -357,15 +312,12 @@
                         <img class="v-name" src="عبدالله حديجـــــان.png" alt="عبدالله حديجان">
                     </div>
                 </div>
-                
                 <div class="waveform-container" id="wave1"></div>
-                
                 <div class="play-btn-wrapper" onclick="toggleAudio(this, 'lahajati______1787685203422.mp3')">
                     <img src="play.png" alt="تشغيل">
                 </div>
             </div>
 
-            <!-- المعلق الثاني -->
             <div class="voice-item">
                 <div class="voice-info-group">
                     <div class="voice-avatar-box"><img src="female-avatar.png" alt="صورة المعلق"></div>
@@ -374,15 +326,12 @@
                         <img class="v-name" src="هاشـــم الجيلاني.png" alt="هاشم الجيلاني">
                     </div>
                 </div>
-                
                 <div class="waveform-container" id="wave2"></div>
-                
                 <div class="play-btn-wrapper" onclick="toggleAudio(this, 'lahajati______1787685203422.mp3')">
                     <img src="play.png" alt="تشغيل">
                 </div>
             </div>
 
-            <!-- المعلق الثالث -->
             <div class="voice-item">
                 <div class="voice-info-group">
                     <div class="voice-avatar-box"><img src="female-avatar.png" alt="صورة المعلق"></div>
@@ -391,21 +340,18 @@
                         <img class="v-name" src="إبراهيم ال عبدالكريم.png" alt="إبراهيم ال عبدالكريم">
                     </div>
                 </div>
-                
                 <div class="waveform-container" id="wave3"></div>
-                
                 <div class="play-btn-wrapper" onclick="toggleAudio(this, 'lahajati______1787685203422.mp3')">
                     <img src="play.png" alt="تشغيل">
                 </div>
             </div>
-
         </div>
     </div>
 
     <!-- الجافاسكربت -->
     <script>
+        // إعداد موجات الصوت
         const waveHeights = [4, 8, 15, 6, 20, 10, 5, 25, 12, 6, 18, 30, 22, 10, 5, 15, 28, 12, 8, 20, 35, 15, 8, 25, 12, 6, 18, 10, 5, 12, 6, 20, 8, 4];
-        
         function generateWaveforms() {
             let waveHTML = '';
             waveHeights.forEach(h => { waveHTML += `<div class="w-bar" style="height: ${h}px;"></div>`; });
@@ -415,18 +361,31 @@
         }
         generateWaveforms();
 
+        // دوال التنقل بين الصفحات
         function openVoiceSection() {
             document.body.classList.add('voice-mode'); 
             document.getElementById('main-section').style.display = 'none';
+            document.getElementById('questionnaire-section').style.display = 'none';
             let voiceSection = document.getElementById('voice-section');
             voiceSection.style.display = 'block';
             voiceSection.classList.add('fade-in');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        function openQuestionnaire() {
+            document.body.classList.add('voice-mode'); // نستخدم نفس وضع الخلفية السوداء
+            document.getElementById('main-section').style.display = 'none';
+            document.getElementById('voice-section').style.display = 'none';
+            let qSection = document.getElementById('questionnaire-section');
+            qSection.style.display = 'block';
+            qSection.classList.add('fade-in');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function openMainSection() {
             document.body.classList.remove('voice-mode'); 
             document.getElementById('voice-section').style.display = 'none';
+            document.getElementById('questionnaire-section').style.display = 'none';
             let mainSection = document.getElementById('main-section');
             mainSection.style.display = 'block';
             mainSection.classList.add('fade-in');
@@ -437,18 +396,33 @@
             }
         }
 
+        // إرسال بيانات الاستبيان إلى واتساب
+        function sendWhatsApp() {
+            const q1 = document.getElementById('ans1').value.trim();
+            const q2 = document.getElementById('ans2').value.trim();
+            const q3 = document.getElementById('ans3').value.trim();
+
+            if(!q1 || !q2 || !q3) {
+                alert('يرجى تعبئة جميع الإجابات قبل الإرسال.');
+                return;
+            }
+
+            const text = `*طلب تعبئة استبيان الأفكار*%0A%0A*1. ما هو النشاط التجاري لشركتك/مشروعك، وما هي الخدمات أو المنتجات الأساسية التي تقدمها؟*%0A${encodeURIComponent(q1)}%0A%0A*2. من هي الفئة المستهدفة الرئيسية لمشروعك؟*%0A${encodeURIComponent(q2)}%0A%0A*3. من هم أبرز منافسيك في السوق؟ وما الذي يميز مشروعك عنهم؟*%0A${encodeURIComponent(q3)}`;
+            
+            window.open(`https://wa.me/967775198963?text=${text}`, '_blank');
+        }
+
+        // مشغل الصوت
         let audioPlayer = new Audio();
         let currentVoiceItem = null;
 
         function toggleAudio(btnElement, audioSrc) {
             const voiceItem = btnElement.closest('.voice-item');
-
             if (currentVoiceItem === voiceItem && !audioPlayer.paused) {
                 audioPlayer.pause();
                 voiceItem.classList.remove('is-playing');
                 return;
             }
-
             if (currentVoiceItem) { currentVoiceItem.classList.remove('is-playing'); }
 
             audioPlayer.src = audioSrc;
