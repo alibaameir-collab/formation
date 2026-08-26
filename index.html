@@ -62,7 +62,7 @@
         .banner-icon-wrapper img { width: 45px; height: auto; transition: transform 0.4s ease; }
         .start-banner:hover .banner-icon-wrapper img { transform: scale(1.1); }
 
-        .features-section { display: flex; justify-content: center; gap: 40px; padding: 60px 5% 50px; position: relative; z-index: 2; }
+        .features-section { display: flex; justify-content: center; gap: 40px; padding: 60px 5% 40px; position: relative; z-index: 2; }
         .feature-card { background: url('خلفية المربعات.png') center center no-repeat; background-size: cover; background-color: #690b22; background-blend-mode: multiply; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; width: 280px; padding: 60px 20px 30px; text-align: center; position: relative; cursor: pointer; transition: all 0.4s ease; }
         .feature-card:hover { transform: translateY(-15px); border-color: rgba(255,255,255,0.4); box-shadow: 0 15px 30px rgba(0,0,0,0.9), 0 0 20px rgba(255,255,255,0.1) inset; }
         .icon-wrapper { position: absolute; top: -50px; left: 0; right: 0; margin: 0 auto; width: 100px; height: 100px; background-color: #690b22; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,0,0,0.4); transition: all 0.4s ease; }
@@ -73,6 +73,49 @@
         .feature-card p { color: #ddd; font-size: 0.9rem; font-weight: 200; }
         .feature-card:hover p { color: #fff; }
 
+        /* ================= الفاصل الجديد (نهتم بإنتاج أفضل جودة) ================= */
+        .quality-separator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 20px 5% 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quality-item {
+            border-radius: 20px;
+            overflow: hidden; /* لقص زوايا الصورة بشكل دائري متناسق مع الإطار */
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: #690b22; /* لون احتياطي */
+        }
+
+        .quality-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.4s ease;
+        }
+
+        .quality-item.text-banner { max-width: 630px; } /* المستطيل العريض */
+        .quality-item.img-banner { max-width: 250px; } /* صورة الكاميرا */
+
+        /* التأثيرات الحركية التفاعلية للفاصل الجديد */
+        .quality-item:hover {
+            transform: translateY(-12px);
+            border-color: rgba(255,255,255,0.4);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.9), 0 0 20px rgba(255,255,255,0.1) inset;
+        }
+        
+        .quality-item:hover img {
+            transform: scale(1.03); /* تكبير الصورة من الداخل بلطف */
+        }
+
+        /* ================= قسم المنشورات ================= */
         .posts-section { padding: 40px 5% 100px; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
         .posts-title-img { max-width: 380px; height: auto; margin-bottom: 60px; display: block; }
         .posts-container { display: flex; justify-content: center; gap: 60px; }
@@ -87,7 +130,7 @@
         .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
         @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        /* ================= الاستمارة الشاملة (الجديدة) ================= */
+        /* ================= الاستمارة الشاملة ================= */
         #full-form-section { display: none; padding: 0 5% 80px; position: relative; z-index: 2; }
         .form-container { display: flex; flex-direction: column; gap: 40px; max-width: 850px; margin: 0 auto; }
         
@@ -97,90 +140,35 @@
         .chat-a { align-self: flex-end; max-width: 85%; width: 100%; position: relative; display: flex; align-items: flex-start; gap: 15px;}
         .avatar-icon { width: 45px; height: 45px; background: #555; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: #fff; flex-shrink: 0; margin-top: 5px; }
         
-        /* تصميم الإجابات النصية */
-        .text-answer-box {
-            background-color: #fff;
-            border-radius: 20px;
-            border-top-right-radius: 5px; /* شكل المحادثة */
-            width: 100%;
-            min-height: 55px;
-            padding: 15px 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .text-answer-box textarea {
-            width: 100%; height: 100%; min-height: 40px; background: transparent; border: none; outline: none;
-            color: #111; font-size: 1.1rem; font-weight: bold; font-family: inherit; resize: vertical;
-        }
+        .text-answer-box { background-color: #fff; border-radius: 20px; border-top-right-radius: 5px; width: 100%; min-height: 55px; padding: 15px 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .text-answer-box textarea { width: 100%; height: 100%; min-height: 40px; background: transparent; border: none; outline: none; color: #111; font-size: 1.1rem; font-weight: bold; font-family: inherit; resize: vertical; }
         .text-answer-box textarea::placeholder { color: #888; font-weight: normal; }
 
-        /* تصميم السؤال الثاني (القوائم المنسدلة - الأعمار، الجنس، الموقع) */
-        .dropdowns-wrapper {
-            display: flex; gap: 15px; justify-content: flex-end; width: 100%; flex-wrap: wrap;
-        }
-        .custom-select-box {
-            background-color: #fff; color: #111; border-radius: 30px; padding: 10px 25px;
-            font-size: 1.1rem; font-weight: bold; cursor: pointer; border: none; outline: none;
-            appearance: none; -webkit-appearance: none; -moz-appearance: none;
-            text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-            background-repeat: no-repeat; background-position-x: 10px; background-position-y: 50%;
-            padding-left: 35px; /* مسافة للسهم */
-        }
+        .dropdowns-wrapper { display: flex; gap: 15px; justify-content: flex-end; width: 100%; flex-wrap: wrap; }
+        .custom-select-box { background-color: #fff; color: #111; border-radius: 30px; padding: 10px 25px; font-size: 1.1rem; font-weight: bold; cursor: pointer; border: none; outline: none; appearance: none; -webkit-appearance: none; -moz-appearance: none; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); background-repeat: no-repeat; background-position-x: 10px; background-position-y: 50%; padding-left: 35px; }
 
-        /* تصميم السؤال الخامس (خيارات المونتاج) */
-        .editing-options-container {
-            display: flex; flex-wrap: wrap; gap: 15px; justify-content: flex-end; width: 100%;
-        }
-        .edit-option {
-            cursor: pointer; border-radius: 30px; transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.4); overflow: hidden;
-            display: flex; justify-content: center; align-items: center;
-        }
+        .editing-options-container { display: flex; flex-wrap: wrap; gap: 15px; justify-content: flex-end; width: 100%; }
+        .edit-option { cursor: pointer; border-radius: 30px; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.4); overflow: hidden; display: flex; justify-content: center; align-items: center; }
         .edit-option img { height: 45px; width: auto; display: block; }
-        
-        /* خيارات المونتاج النصية (التي لا يوجد لها صورة) */
-        .edit-text-pill {
-            padding: 10px 25px; color: #fff; font-size: 1.1rem; font-weight: bold;
-            display: flex; align-items: center; justify-content: center; height: 45px;
-        }
-
+        .edit-text-pill { padding: 10px 25px; color: #fff; font-size: 1.1rem; font-weight: bold; display: flex; align-items: center; justify-content: center; height: 45px; }
         .edit-option:hover { background-color: rgba(255,255,255,0.1); }
         .edit-option.selected { border-color: #fff; background-color: #690b22; box-shadow: 0 0 15px rgba(105, 11, 34, 0.8); }
 
-        /* تصميم السؤال السادس (اختيار المعلق) داخل الاستمارة */
         .form-voices-container { width: 100%; display: flex; flex-direction: column; gap: 15px; align-items: flex-end;}
-        .form-voice-item {
-            background: url('خلفية مربع الصوت.png') center center no-repeat; background-size: cover; background-color: #111;
-            border: 1px solid rgba(255,255,255,0.2); border-radius: 60px; width: 100%; max-width: 600px;
-            padding: 10px 15px; display: flex; align-items: center; justify-content: space-between; gap: 15px; cursor: pointer; transition: all 0.3s ease;
-        }
+        .form-voice-item { background: url('خلفية مربع الصوت.png') center center no-repeat; background-size: cover; background-color: #111; border: 1px solid rgba(255,255,255,0.2); border-radius: 60px; width: 100%; max-width: 600px; padding: 10px 15px; display: flex; align-items: center; justify-content: space-between; gap: 15px; cursor: pointer; transition: all 0.3s ease; }
         .form-voice-item:hover { border-color: rgba(255,255,255,0.4); transform: translateX(-5px); }
-        
-        /* الدائرة الخاصة بالاختيار (حمراء/خضراء) */
-        .selection-circle {
-            width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff;
-            background-color: #ff4d4d; /* أحمر افتراضي */
-            flex-shrink: 0; transition: all 0.3s ease; margin-left: 10px;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
-        }
+        .selection-circle { width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; background-color: #ff4d4d; flex-shrink: 0; transition: all 0.3s ease; margin-left: 10px; box-shadow: inset 0 0 5px rgba(0,0,0,0.5); }
         .form-voice-item.selected { border-color: #25d366; background-color: rgba(37, 211, 102, 0.1); }
         .form-voice-item.selected .selection-circle { background-color: #25d366; border-color: #25d366; box-shadow: 0 0 10px #25d366; }
-
         .form-voice-item .voice-info-group { display: flex; align-items: center; gap: 15px; flex-grow: 1;}
         .form-voice-item .voice-avatar-box { width: 50px; height: 50px; border-radius: 50%; background-color: #fff; display: flex; justify-content: center; align-items: center; padding: 2px; }
         .form-voice-item .voice-avatar-box img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
         .form-voice-item .voice-text-details { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
         .form-voice-item .v-type { height: 12px; }
         .form-voice-item .v-name { height: 16px; }
-
-        .form-voice-item .play-btn-wrapper { 
-            width: 45px; height: 45px; border-radius: 50%; flex-shrink: 0; background-color: #690b22; 
-            display: flex; justify-content: center; align-items: center; box-shadow: inset 0 0 10px rgba(0,0,0,0.6); 
-            cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.15); 
-        }
+        .form-voice-item .play-btn-wrapper { width: 45px; height: 45px; border-radius: 50%; flex-shrink: 0; background-color: #690b22; display: flex; justify-content: center; align-items: center; box-shadow: inset 0 0 10px rgba(0,0,0,0.6); cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.15); }
         .form-voice-item .play-btn-wrapper:hover { transform: scale(1.1); }
         .form-voice-item .play-btn-wrapper img { width: 15px; margin-right: -2px; }
-
         .form-voice-item .waveform-container { display: flex; align-items: center; justify-content: center; gap: 2px; flex-grow: 1; opacity: 0.3; }
         .form-voice-item .w-bar { width: 2px; background-color: #fff; border-radius: 2px; }
         .form-voice-item.is-playing .waveform-container { opacity: 1; }
@@ -189,6 +177,29 @@
         .submit-wa-btn { background: transparent; border: none; cursor: pointer; margin: 50px auto 0; display: block; transition: transform 0.3s ease; }
         .submit-wa-btn img { max-width: 250px; height: auto; display: block; }
         .submit-wa-btn:hover { transform: scale(1.05); }
+
+        /* ================= صفحة اختيار المعلق ================= */
+        #voice-section { display: none; padding: 0 5% 80px; text-align: center; position: relative; z-index: 2; }
+        .voice-title-container { background: linear-gradient(180deg, rgba(24,24,24,0.7) 0%, rgba(5,5,5,0.7) 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 20px 50px; display: inline-block; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(10px); }
+        .voice-title-img { height: 25px; width: auto; display: block; }
+        .voice-cards-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .voice-item { background: url('خلفية مربع الصوت.png') center center no-repeat; background-size: cover; background-color: #690b22; background-blend-mode: multiply; border: 1px solid rgba(255,255,255,0.2); border-radius: 60px; width: 100%; max-width: 750px; padding: 12px 15px; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s ease; }
+        .voice-item:hover { border-color: rgba(255,255,255,0.4); box-shadow: 0 5px 20px rgba(0,0,0,0.6); }
+        .voice-info-group { display: flex; align-items: center; gap: 15px; width: 260px; }
+        .voice-avatar-box { width: 60px; height: 60px; border-radius: 50%; background-color: #fff; display: flex; justify-content: center; align-items: center; padding: 2px; flex-shrink: 0; }
+        .voice-avatar-box img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        .voice-text-details { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+        .v-type { height: 14px; width: auto; object-fit: contain; }
+        .v-name { height: 20px; width: auto; object-fit: contain; }
+        .play-btn-wrapper { width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0; background-color: #690b22; display: flex; justify-content: center; align-items: center; box-shadow: inset 0 0 15px rgba(0,0,0,0.6), 0 5px 15px rgba(0,0,0,0.4); cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.15); }
+        .play-btn-wrapper:hover { transform: scale(1.05); background-color: #870f2d; }
+        .play-btn-wrapper img { width: 20px; height: auto; margin-right: -4px; }
+        .waveform-container { display: flex; align-items: center; justify-content: center; gap: 3px; flex-grow: 1; margin: 0 20px; opacity: 0.3; transition: opacity 0.3s ease; }
+        .w-bar { width: 2px; background-color: #fff; border-radius: 2px; transition: transform 0.2s ease; }
+        .voice-item.is-playing { border-color: rgba(255, 255, 255, 0.6); box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+        .voice-item.is-playing .waveform-container { opacity: 1; }
+        .voice-item.is-playing .w-bar { animation: pulse-wave 0.5s infinite alternate; }
+        .voice-item.is-playing .play-btn-wrapper img { opacity: 0.4; }
 
     </style>
 </head>
@@ -244,6 +255,7 @@
             </div>
         </section>
 
+        <!-- المربعات الثلاثة -->
         <section class="features-section">
             <div class="feature-card" onclick="openFullForm()">
                 <div class="icon-wrapper"><img src="استبيان.png" alt="أيقونة استبيان"></div>
@@ -255,13 +267,26 @@
                 <img class="card-title-img" src="نوع المونتــــاج.png" alt="إختيار نوع المونتاج">
                 <p>لتحديد نوعية المونتاج المطلوبة</p>
             </div>
-            <div class="feature-card" onclick="openFullForm()">
+            <div class="feature-card" onclick="openVoiceSection()">
                 <div class="icon-wrapper"><img src="تعليق صوتي.png" alt="أيقونة تعليق صوتي"></div>
                 <img class="card-title-img" src="معلـــق صوتي.png" alt="إختيار معلق صوتي">
                 <p>اختيار معلقك الصوتي لاعمالك</p>
             </div>
         </section>
 
+        <!-- الفاصل التفاعلي الجديد (نهتم بإنتاج أفضل جودة) -->
+        <section class="quality-separator">
+            <!-- لافتة النص -->
+            <div class="quality-item text-banner">
+                <img src="نهتم بإنتاج افضل جودة.png" alt="نهتم بإنتاج أفضل جودة">
+            </div>
+            <!-- لافتة الصورة (الكاميرا) -->
+            <div class="quality-item img-banner">
+                <img src="Brightness_Contrast 2.jpg" alt="كاميرا ومعدات تصوير">
+            </div>
+        </section>
+
+        <!-- قسم المنشورات -->
         <section class="posts-section">
             <img class="posts-title-img" src="منشورات في صفحاتنــــا_.png" alt="منشورات في صفحاتنا">
             <div class="posts-container">
@@ -297,7 +322,6 @@
             <div class="chat-a">
                 <div class="avatar-icon"><i class="fas fa-user"></i></div>
                 <div class="dropdowns-wrapper">
-                    <!-- قائمة الأعمار -->
                     <select id="f_age" class="custom-select-box">
                         <option value="" disabled selected>الأعمار</option>
                         <option value="من 15 إلى 20 سنة">من 15 إلى 20 سنة</option>
@@ -305,14 +329,12 @@
                         <option value="من 30 سنة وما فوق">من 30 سنة وما فوق</option>
                     </select>
 
-                    <!-- قائمة الجنس -->
                     <select id="f_gender" class="custom-select-box">
                         <option value="" disabled selected>الجنس</option>
                         <option value="ذكر">ذكر</option>
                         <option value="أنثى">أنثى</option>
                     </select>
 
-                    <!-- قائمة الموقع الجغرافي -->
                     <select id="f_location" class="custom-select-box">
                         <option value="" disabled selected>الموقع الجغرافي</option>
                         <option value="جميع المحافظات">جميع المحافظات</option>
@@ -359,7 +381,6 @@
                     <div class="edit-option" onclick="selectEdit(this, 'المونتاج المتوازي')">
                         <img src="المونتاج المتوازي (Parallel Editing _ Cross-Cutting).png" alt="المونتاج المتوازي">
                     </div>
-                    <!-- خيارات بنص CSS مطابقة للشكل -->
                     <div class="edit-option" onclick="selectEdit(this, 'المونتاج الإيقاعي')">
                         <div class="edit-text-pill">المونتاج الإيقاعي (Metric / Rhythm Editing)</div>
                     </div>
@@ -375,7 +396,6 @@
                 <div class="avatar-icon"><i class="fas fa-user"></i></div>
                 <div class="form-voices-container" id="form-voices">
                     
-                    <!-- عبدالله حديجان -->
                     <div class="form-voice-item" onclick="selectVoice(this, 'عبدالله حديجان')">
                         <div class="selection-circle"></div>
                         <div class="voice-info-group">
@@ -391,7 +411,6 @@
                         </div>
                     </div>
 
-                    <!-- هاشم الجيلاني -->
                     <div class="form-voice-item" onclick="selectVoice(this, 'هاشم الجيلاني')">
                         <div class="selection-circle"></div>
                         <div class="voice-info-group">
@@ -407,7 +426,6 @@
                         </div>
                     </div>
 
-                    <!-- إبراهيم ال عبدالكريم -->
                     <div class="form-voice-item" onclick="selectVoice(this, 'إبراهيم ال عبدالكريم')">
                         <div class="selection-circle"></div>
                         <div class="voice-info-group">
@@ -433,6 +451,59 @@
         </button>
     </div>
 
+    <!-- ================= صفحة اختيار المعلق (الأساسية) ================= -->
+    <div id="voice-section">
+        <button class="back-btn" onclick="openMainSection()"><i class="fas fa-arrow-right"></i> رجوع</button>
+
+        <div class="voice-title-container">
+            <img class="voice-title-img" src="أختر من يمثــل صــــوت مشروعــــك.png" alt="أختر من يمثل صوت مشروعك">
+        </div>
+
+        <div class="voice-cards-container">
+            <div class="voice-item">
+                <div class="voice-info-group">
+                    <div class="voice-avatar-box"><img src="female-avatar.png" alt="صورة المعلق"></div>
+                    <div class="voice-text-details">
+                        <img class="v-type" src="صوت طبيعي.png" alt="صوت طبيعي">
+                        <img class="v-name" src="عبدالله حديجـــــان.png" alt="عبدالله حديجان">
+                    </div>
+                </div>
+                <div class="waveform-container" id="wave1"></div>
+                <div class="play-btn-wrapper" onclick="toggleAudio(this, 'lahajati______1787685203422.mp3')">
+                    <img src="play.png" alt="تشغيل">
+                </div>
+            </div>
+
+            <div class="voice-item">
+                <div class="voice-info-group">
+                    <div class="voice-avatar-box"><img src="female-avatar.png" alt="صورة المعلق"></div>
+                    <div class="voice-text-details">
+                        <img class="v-type" src="صوت قرار.png" alt="صوت قرار">
+                        <img class="v-name" src="هاشـــم الجيلاني.png" alt="هاشم الجيلاني">
+                    </div>
+                </div>
+                <div class="waveform-container" id="wave2"></div>
+                <div class="play-btn-wrapper" onclick="toggleAudio(this, 'lahajati______1787685203422.mp3')">
+                    <img src="play.png" alt="تشغيل">
+                </div>
+            </div>
+
+            <div class="voice-item">
+                <div class="voice-info-group">
+                    <div class="voice-avatar-box"><img src="female-avatar.png" alt="صورة المعلق"></div>
+                    <div class="voice-text-details">
+                        <img class="v-type" src="صوت طبيعي.png" alt="صوت طبيعي">
+                        <img class="v-name" src="إبراهيم ال عبدالكريم.png" alt="إبراهيم ال عبدالكريم">
+                    </div>
+                </div>
+                <div class="waveform-container" id="wave3"></div>
+                <div class="play-btn-wrapper" onclick="toggleAudio(this, 'lahajati______1787685203422.mp3')">
+                    <img src="play.png" alt="تشغيل">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- الجافاسكربت -->
     <script>
         // إعداد الموجات
@@ -440,6 +511,9 @@
         function generateWaveforms() {
             let waveHTML = '';
             waveHeights.forEach(h => { waveHTML += `<div class="w-bar" style="height: ${h}px;"></div>`; });
+            document.getElementById('wave1').innerHTML = waveHTML;
+            document.getElementById('wave2').innerHTML = waveHTML;
+            document.getElementById('wave3').innerHTML = waveHTML;
             document.getElementById('f-wave1').innerHTML = waveHTML;
             document.getElementById('f-wave2').innerHTML = waveHTML;
             document.getElementById('f-wave3').innerHTML = waveHTML;
@@ -456,8 +530,20 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        function openVoiceSection() {
+            document.body.classList.add('voice-mode'); 
+            document.getElementById('main-section').style.display = 'none';
+            document.getElementById('full-form-section').style.display = 'none';
+            let voiceSection = document.getElementById('voice-section');
+            voiceSection.style.display = 'block';
+            voiceSection.classList.add('fade-in');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function openMainSection() {
             document.body.classList.remove('form-mode'); 
+            document.body.classList.remove('voice-mode'); 
+            document.getElementById('voice-section').style.display = 'none';
             document.getElementById('full-form-section').style.display = 'none';
             let mainSection = document.getElementById('main-section');
             mainSection.style.display = 'block';
@@ -473,7 +559,6 @@
         let selectedEditingStyle = "";
         let selectedVoiceOver = "";
 
-        // دالة اختيار نوع المونتاج
         function selectEdit(element, styleName) {
             let options = document.querySelectorAll('.edit-option');
             options.forEach(opt => opt.classList.remove('selected'));
@@ -481,7 +566,6 @@
             selectedEditingStyle = styleName;
         }
 
-        // دالة اختيار المعلق
         function selectVoice(element, voiceName) {
             let voices = document.querySelectorAll('.form-voice-item');
             voices.forEach(v => v.classList.remove('selected'));
@@ -489,12 +573,12 @@
             selectedVoiceOver = voiceName;
         }
 
-        // تشغيل الصوت المستقل داخل الاستمارة
+        // تشغيل الصوت
         let audioPlayer = new Audio();
         let currentVoiceItem = null;
 
         function toggleAudio(btnElement, audioSrc) {
-            const voiceItem = btnElement.closest('.form-voice-item');
+            const voiceItem = btnElement.closest('.form-voice-item') || btnElement.closest('.voice-item');
             if (currentVoiceItem === voiceItem && !audioPlayer.paused) {
                 audioPlayer.pause();
                 voiceItem.classList.remove('is-playing');
@@ -514,7 +598,7 @@
             };
         }
 
-        // دالة الإرسال الشاملة للواتساب
+        // إرسال الواتساب من الاستمارة الشاملة
         function sendFullFormWhatsApp() {
             const q1 = document.getElementById('f_ans1').value.trim() || "لم يكتب إجابة";
             const age = document.getElementById('f_age').value || "غير محدد";
@@ -525,7 +609,7 @@
             const edit = selectedEditingStyle || "لم يتم اختيار نوع مونتاج";
             const voice = selectedVoiceOver || "لم يتم اختيار معلق صوتي";
 
-            const text = `*طلب تسجيل استمارة جديد (تكوين)*%0A%0A*1. النشاط التجاري والخدمات:*%0A${encodeURIComponent(q1)}%0A%0A*2. الفئة المستهدفة:*%0A- العمر: ${encodeURIComponent(age)}%0A- الجنس: ${encodeURIComponent(gender)}%0A- الموقع: ${encodeURIComponent(location)}%0A%0A*3. الهدف الرئيسي:*%0A${encodeURIComponent(q3)}%0A%0A*4. التحديات الحالية:*%0A${encodeURIComponent(q4)}%0A%0A*5. نوع المونتاج المفضل:*%0A${encodeURIComponent(edit)}%0A%0A*6. المعلق الصوتي المختار:*%0A${encodeURIComponent(voice)}`;
+            const text = `*طلب تعبئة استمارة جديد (تكوين)*%0A%0A*1. النشاط التجاري والخدمات:*%0A${encodeURIComponent(q1)}%0A%0A*2. الفئة المستهدفة:*%0A- العمر: ${encodeURIComponent(age)}%0A- الجنس: ${encodeURIComponent(gender)}%0A- الموقع: ${encodeURIComponent(location)}%0A%0A*3. الهدف الرئيسي:*%0A${encodeURIComponent(q3)}%0A%0A*4. التحديات الحالية:*%0A${encodeURIComponent(q4)}%0A%0A*5. نوع المونتاج المفضل:*%0A${encodeURIComponent(edit)}%0A%0A*6. المعلق الصوتي المختار:*%0A${encodeURIComponent(voice)}`;
             
             window.open(`https://wa.me/967775198963?text=${text}`, '_blank');
         }
