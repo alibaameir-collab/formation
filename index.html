@@ -75,45 +75,19 @@
 
         /* ================= الفاصل الجديد (نهتم بإنتاج أفضل جودة) ================= */
         .quality-separator {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            padding: 20px 5% 50px;
-            position: relative;
-            z-index: 2;
+            display: flex; justify-content: center; align-items: center; gap: 30px;
+            padding: 20px 5% 50px; position: relative; z-index: 2;
         }
-
         .quality-item {
-            border-radius: 20px;
-            overflow: hidden; /* لقص زوايا الصورة بشكل دائري متناسق مع الإطار */
-            border: 1px solid rgba(255,255,255,0.15);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background-color: #690b22; /* لون احتياطي */
+            border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5); cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: #690b22;
         }
-
-        .quality-item img {
-            display: block;
-            width: 100%;
-            height: auto;
-            transition: transform 0.4s ease;
-        }
-
-        .quality-item.text-banner { max-width: 630px; } /* المستطيل العريض */
-        .quality-item.img-banner { max-width: 250px; } /* صورة الكاميرا */
-
-        /* التأثيرات الحركية التفاعلية للفاصل الجديد */
-        .quality-item:hover {
-            transform: translateY(-12px);
-            border-color: rgba(255,255,255,0.4);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.9), 0 0 20px rgba(255,255,255,0.1) inset;
-        }
-        
-        .quality-item:hover img {
-            transform: scale(1.03); /* تكبير الصورة من الداخل بلطف */
-        }
+        .quality-item img { display: block; width: 100%; height: auto; transition: transform 0.4s ease; }
+        .quality-item.text-banner { max-width: 630px; }
+        .quality-item.img-banner { max-width: 250px; }
+        .quality-item:hover { transform: translateY(-12px); border-color: rgba(255,255,255,0.4); box-shadow: 0 15px 30px rgba(0,0,0,0.9), 0 0 20px rgba(255,255,255,0.1) inset; }
+        .quality-item:hover img { transform: scale(1.03); }
 
         /* ================= قسم المنشورات ================= */
         .posts-section { padding: 40px 5% 100px; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
@@ -255,7 +229,6 @@
             </div>
         </section>
 
-        <!-- المربعات الثلاثة -->
         <section class="features-section">
             <div class="feature-card" onclick="openFullForm()">
                 <div class="icon-wrapper"><img src="استبيان.png" alt="أيقونة استبيان"></div>
@@ -280,13 +253,12 @@
             <div class="quality-item text-banner">
                 <img src="نهتم بإنتاج افضل جودة.png" alt="نهتم بإنتاج أفضل جودة">
             </div>
-            <!-- لافتة الصورة (الكاميرا) -->
+            <!-- لافتة الصورة (الكاميرا) تم تعديل الامتداد إلى png -->
             <div class="quality-item img-banner">
-                <img src="Brightness_Contrast 2.jpg" alt="كاميرا ومعدات تصوير">
+                <img src="Brightness_Contrast 2.png" alt="كاميرا ومعدات تصوير">
             </div>
         </section>
 
-        <!-- قسم المنشورات -->
         <section class="posts-section">
             <img class="posts-title-img" src="منشورات في صفحاتنــــا_.png" alt="منشورات في صفحاتنا">
             <div class="posts-container">
@@ -308,7 +280,6 @@
 
         <div class="form-container">
             
-            <!-- السؤال الأول -->
             <div class="chat-q"><img src="السؤال واحد.png" alt="السؤال 1"></div>
             <div class="chat-a">
                 <div class="avatar-icon"><i class="fas fa-user"></i></div>
@@ -317,7 +288,6 @@
                 </div>
             </div>
 
-            <!-- السؤال الثاني (القوائم المنسدلة) -->
             <div class="chat-q"><img src="السؤال اثنين.png" alt="السؤال 2"></div>
             <div class="chat-a">
                 <div class="avatar-icon"><i class="fas fa-user"></i></div>
@@ -349,7 +319,6 @@
                 </div>
             </div>
 
-            <!-- السؤال الثالث -->
             <div class="chat-q"><img src="السؤال ثلاثة.png" alt="السؤال 3"></div>
             <div class="chat-a">
                 <div class="avatar-icon"><i class="fas fa-user"></i></div>
@@ -358,7 +327,6 @@
                 </div>
             </div>
 
-            <!-- السؤال الرابع -->
             <div class="chat-q"><img src="السؤال اربعة.png" alt="السؤال 4"></div>
             <div class="chat-a">
                 <div class="avatar-icon"><i class="fas fa-user"></i></div>
@@ -367,7 +335,6 @@
                 </div>
             </div>
 
-            <!-- السؤال الخامس (نوع المونتاج) -->
             <div class="chat-q"><img src="السؤال خمسة.png" alt="السؤال 5"></div>
             <div class="chat-a">
                 <div class="avatar-icon"><i class="fas fa-user"></i></div>
@@ -390,7 +357,6 @@
                 </div>
             </div>
 
-            <!-- السؤال السادس (اختيار المعلق) -->
             <div class="chat-q"><img src="السؤال السادس.png" alt="السؤال 6"></div>
             <div class="chat-a">
                 <div class="avatar-icon"><i class="fas fa-user"></i></div>
@@ -506,7 +472,6 @@
 
     <!-- الجافاسكربت -->
     <script>
-        // إعداد الموجات
         const waveHeights = [4, 8, 15, 6, 20, 10, 5, 25, 12, 6, 18, 30, 22, 10, 5, 15, 28, 12, 8, 20, 35, 15, 8, 25, 12, 6, 18, 10, 5, 12, 6, 20, 8, 4];
         function generateWaveforms() {
             let waveHTML = '';
@@ -520,7 +485,6 @@
         }
         generateWaveforms();
 
-        // دوال التنقل
         function openFullForm() {
             document.body.classList.add('form-mode'); 
             document.getElementById('main-section').style.display = 'none';
@@ -555,7 +519,6 @@
             }
         }
 
-        // متغيرات حفظ الاختيارات
         let selectedEditingStyle = "";
         let selectedVoiceOver = "";
 
@@ -573,7 +536,6 @@
             selectedVoiceOver = voiceName;
         }
 
-        // تشغيل الصوت
         let audioPlayer = new Audio();
         let currentVoiceItem = null;
 
@@ -598,7 +560,6 @@
             };
         }
 
-        // إرسال الواتساب من الاستمارة الشاملة
         function sendFullFormWhatsApp() {
             const q1 = document.getElementById('f_ans1').value.trim() || "لم يكتب إجابة";
             const age = document.getElementById('f_age').value || "غير محدد";
